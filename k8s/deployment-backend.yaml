@@ -1,0 +1,19 @@
+kind: Deployment
+metadata:
+  name: relay-backend
+  namespace: relay
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: relay-backend
+  template:
+    metadata:
+      labels:
+        app: relay-backend
+    spec:
+      containers:
+        - name: relay-backend
+          image: vishnuvardhanreddy/chat-backend:v1
+          ports:
+            - containerPort: 5000
