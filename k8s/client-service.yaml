@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: relay-client-service
+spec:
+  selector:
+    app.kubernetes.io/name: relay-client
+  ports:
+    - protocol: TCP
+      port: 8080
+      targetPort: 8080

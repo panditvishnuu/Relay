@@ -1,20 +1,20 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: relay-frontend
+  name: relay-client
   namespace: relay
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: relay-frontend
+      app: relay-client
   template:
     metadata:
       labels:
-        app: relay-frontend
+        app: relay-client
     spec:
       containers:
-        - name: relay-frontend
-          image: vishnuvardhanreddy/chat-frontend:v1
+        - name: relay-client
+          image: vishnu827/relay-client:latest
           ports:
             - containerPort: 5173

@@ -1,19 +1,22 @@
 kind: Deployment
 metadata:
-  name: relay-backend
+  name: relay-server
   namespace: relay
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: relay-backend
+      app: relay-server
   template:
     metadata:
       labels:
-        app: relay-backend
+        app: relay-server
     spec:
       containers:
-        - name: relay-backend
-          image: vishnuvardhanreddy/chat-backend:v1
+        - name: relay-server
+          image: vishnu827/relay-server:latest
+          envFrom:
+            - secretRef:
+                name: relay-secrets
           ports:
             - containerPort: 5000
