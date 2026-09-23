@@ -15,6 +15,11 @@ spec:
       containers:
         - name: relay-server
           image: vishnu827/relay-server:latest
+          env:
+            - name: CLIENT_ORIGIN
+              value: http://localhost:8080
+            - name: EXTRA_ORIGINS
+              value: http://localhost:5173,http://relay-client.local
           envFrom:
             - secretRef:
                 name: relay-secrets

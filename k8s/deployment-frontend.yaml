@@ -16,5 +16,6 @@ spec:
       containers:
         - name: relay-client
           image: vishnu827/relay-client:latest
+          imagePullPolicy: Always
           ports:
-            - containerPort: 5173
+            - containerPort: 8080
